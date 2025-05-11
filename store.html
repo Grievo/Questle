@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questle | Store</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #fdf6e3;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #ff6f61;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      border-bottom: 5px solid #ffa07a;
+    }
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .store {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 20px;
+    }
+    .item {
+      background-color: #e1f5fe;
+      border-radius: 20px;
+      padding: 20px;
+      margin: 15px;
+      width: 250px;
+      box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .item h3 {
+      margin-bottom: 10px;
+      font-size: 1.3em;
+    }
+    .cost {
+      font-size: 1.1em;
+      color: #333;
+      margin: 10px 0;
+    }
+    button {
+      background-color: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1em;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+    .points-available {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    .log {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+    }
+    .log h4 {
+      margin-bottom: 10px;
+    }
+    .log ul {
+      list-style-type: square;
+      padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Questle | Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quests.html">Quests</a>
+      <a href="store.html">Store</a>
+      <a href="journal.html">Journal</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+
+  <div class="points-available">
+    Points Available: <span id="availablePoints">0</span>
+  </div>
+
+  <div class="store">
+    <div class="item"><h3>🎉 Yes Day</h3><div class="cost">5000 pts</div><button onclick="redeem('Yes Day', 5000, this)">Redeem</button></div>
+    <div class="item"><h3>🍕 Pizza Party</h3><div class="cost">1000 pts</div><button onclick="redeem('Pizza Party', 1000, this)">Redeem</button></div>
+    <div class="item"><h3>🎬 Movie Night</h3><div class="cost">200 pts</div><button onclick="redeem('Movie Night', 200, this)">Redeem</button></div>
+    <div class="item"><h3>🍕🎬 Pizza + Movie Night</h3><div class="cost">1100 pts</div><button onclick="redeem('Pizza + Movie Night', 1100, this)">Redeem</button></div>
+    <div class="item"><h3>🎮 New Video Game</h3><div class="cost">750 pts</div><button onclick="redeem('New Video Game', 750, this)">Redeem</button></div>
+    <div class="item"><h3>💵 $10 Cash</h3><div class="cost">500 pts</div><button onclick="redeem('$10 Cash', 500, this)">Redeem</button></div>
+  </div>
+
+  <div class="log">
+    <h4>Redeemed Rewards</h4>
+    <ul id="rewardLog"></ul>
+  </div>
+
+  <script>
+    function updateDisplay() {
+      const points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      document.getElementById('availablePoints').textContent = points;
+      document.querySelectorAll("button").forEach(btn => {
+        const cost = parseInt(btn.previousElementSibling.textContent);
+        btn.disabled = points < cost;
+      });
+
+      // Load reward log
+      const log = JSON.parse(localStorage.getItem('questle-rewardLog') || "[]");
+      const ul = document.getElementById('rewardLog');
+      ul.innerHTML = "";
+      log.forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = item;
+        ul.appendChild(li);
+      });
+    }
+
+    function redeem(name, cost, button) {
+      let points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      if (points >= cost) {
+        const response = prompt(`To redeem '${name}', type: I Agree`);
+        if (response === "I Agree") {
+          points -= cost;
+          localStorage.setItem('questle-totalPoints', points);
+          let log = JSON.parse(localStorage.getItem('questle-rewardLog') || "[]");
+          log.push(`${name} - ${cost} pts`);
+          localStorage.setItem('questle-rewardLog', JSON.stringify(log));
+          updateDisplay();
+          button.disabled = true;
+          alert("Reward redeemed and logged! 🎉");
+        } else {
+          alert("You must type 'I Agree' to redeem this reward.");
+        }
+      }
+    }
+
+    window.onload = updateDisplay;
+  </script>
+</body>
+</html>
