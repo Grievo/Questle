@@ -1,2 +1,134 @@
 
-<!DOCTYPE html><html><head><title>Questle Store</title></head><body><h1>Store Coming Soon</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questle | Store</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body {
+      background-color: #1f5122;
+      color: #f1f1f1;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3e8e41;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #2f6e32;
+    }
+    nav {
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .points-available {
+      text-align: center;
+      font-size: 0.9em;
+      margin-top: 15px;
+    }
+    .store {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 20px;
+    }
+    .item {
+      background-color: #2f6e32;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 10px;
+      width: 250px;
+      text-align: center;
+      box-shadow: 2px 2px 8px #000;
+    }
+    .item h3 {
+      margin-bottom: 10px;
+    }
+    button {
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 0.6em;
+      font-family: 'Press Start 2P', cursive;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:disabled {
+      background: #888;
+      cursor: not-allowed;
+    }
+    .log {
+      max-width: 600px;
+      margin: 20px auto;
+      background-color: #3e8e41;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 0 5px #000;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Questle | Store</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quests.html">Quests</a>
+      <a href="store.html">Store</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  <div class="points-available">
+    Points Available: <span id="availablePoints">0</span>
+  </div>
+  <div class="store">
+    <div class="item"><h3>🎉 Yes Day</h3><p>5000 pts</p><button onclick="redeem('Yes Day', 5000, this)">Redeem</button></div>
+    <div class="item"><h3>🍕 Pizza Party</h3><p>1000 pts</p><button onclick="redeem('Pizza Party', 1000, this)">Redeem</button></div>
+    <div class="item"><h3>🎬 Movie Night</h3><p>200 pts</p><button onclick="redeem('Movie Night', 200, this)">Redeem</button></div>
+    <div class="item"><h3>🍕🎬 Pizza + Movie Night</h3><p>1100 pts</p><button onclick="redeem('Pizza + Movie Night', 1100, this)">Redeem</button></div>
+    <div class="item"><h3>🎮 New Video Game</h3><p>750 pts</p><button onclick="redeem('New Video Game', 750, this)">Redeem</button></div>
+    <div class="item"><h3>💵 $10 Cash</h3><p>500 pts</p><button onclick="redeem('$10 Cash', 500, this)">Redeem</button></div>
+  </div>
+  <div class="log">
+    <h3>Redeemed Rewards</h3>
+    <ul id="rewardLog"></ul>
+  </div>
+  <script>
+    function updateDisplay() {
+      const points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      document.getElementById('availablePoints').textContent = points;
+      document.querySelectorAll("button").forEach(btn => {
+        const cost = parseInt(btn.previousElementSibling.textContent);
+        btn.disabled = points < cost;
+      });
+      const log = JSON.parse(localStorage.getItem('questle-rewardLog') || "[]");
+      document.getElementById('rewardLog').innerHTML = log.map(item => `<li>${item}</li>`).join('');
+    }
+    function redeem(name, cost, button) {
+      const points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      const confirmInput = prompt(`To redeem "${name}", type: I Agree`);
+      if (confirmInput === "I Agree") {
+        if (points >= cost) {
+          const newPoints = points - cost;
+          localStorage.setItem('questle-totalPoints', newPoints);
+          const log = JSON.parse(localStorage.getItem('questle-rewardLog') || "[]");
+          log.push(`${name} - ${cost} pts`);
+          localStorage.setItem('questle-rewardLog', JSON.stringify(log));
+          updateDisplay();
+          alert("Reward redeemed!");
+        }
+      } else {
+        alert("Redemption cancelled.");
+      }
+    }
+    window.onload = updateDisplay;
+  </script>
+</body>
+</html>
