@@ -48,7 +48,7 @@
       box-shadow: 0 0 3px #000;
     }
     ul {
-      list-style: square;
+      list-style: none;
       padding-left: 20px;
     }
     .quest {
@@ -57,6 +57,10 @@
     .points {
       color: #d9ffcc;
       margin-left: 10px;
+    }
+    .total {
+      text-align: center;
+      margin: 10px auto;
     }
   </style>
 </head>
@@ -71,22 +75,273 @@
     </nav>
   </header>
   <main>
-    <h2>Choose your game and difficulty</h2>
-    <details><summary>Minecraft</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Defeat the Ender Dragon in Hardcore mode <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Complete a Woodland Mansion without dying <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Raid a Bastion Remnant and loot the chests <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Craft a full set of diamond armor <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Trade with a villager until they become a master <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>League of Legends</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Win a ranked game with an S+ grade <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Get 20 assists in a match as a support <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Win a game without dying once <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Ward over 20 times in a game <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Score First Blood <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Monster Hunter Wilds</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Defeat a tempered elder dragon solo <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Hunt a monster without taking any healing items <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Break every part of a monster in one hunt <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Capture a large monster <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Craft a full armor set from one monster <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Farming Simulator</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Run a farm for 10 in-game years with profit <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Buy and automate a full greenhouse setup <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Harvest and deliver three crop types in one session <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Sell a full trailer of harvested crops <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Use three different machines on the same field <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Diablo 4</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Complete a Tier 100 Nightmare Dungeon solo <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Defeat a World Boss on World Tier 4 <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Obtain and max enchant a Legendary item <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Clear five Helltide chests <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Imprint a Legendary Aspect onto your gear <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Baldur’s Gate 3</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Complete the game without using Long Rest <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Solve a major puzzle without guides <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Pass a DC 30 Persuasion or Intimidation check <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Recruit all companions in a single playthrough <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Successfully steal from a major NPC <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Palworld</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Capture a legendary Pal without taking damage <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Defeat a Tower Boss solo <span class='points'>(25 pts)</span></li>
-<li class='quest'>[Hard] Breed a Pal with the best combat traits <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Capture 10 unique Pals <span class='points'>(10 pts)</span></li>
-<li class='quest'>[Moderate] Build and power a fully automated base <span class='points'>(10 pts)</span></li></ul></details></details>
+    <div class="total">Points Earned: <span id="availablePoints">0</span></div>
+    <details><summary>Minecraft</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Minecraft_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Minecraft_0', 50)">
+                    [Very Difficult] Defeat the Ender Dragon in Hardcore mode
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Minecraft_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Minecraft_0', 25)">
+                    [Hard] Complete a Woodland Mansion without dying
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Minecraft_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Minecraft_1', 25)">
+                    [Hard] Raid a Bastion Remnant and loot the chests
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Minecraft_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Minecraft_0', 10)">
+                    [Moderate] Craft a full set of diamond armor
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Minecraft_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Minecraft_1', 10)">
+                    [Moderate] Trade with a villager until they become a master
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>League of Legends</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_League of Legends_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_League of Legends_0', 50)">
+                    [Very Difficult] Win a ranked game with an S+ grade
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_League of Legends_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_League of Legends_0', 25)">
+                    [Hard] Get 20 assists in a match as a support
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_League of Legends_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_League of Legends_1', 25)">
+                    [Hard] Win a game without dying once
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_League of Legends_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_League of Legends_0', 10)">
+                    [Moderate] Ward over 20 times in a game
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_League of Legends_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_League of Legends_1', 10)">
+                    [Moderate] Score First Blood
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>Monster Hunter Wilds</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Monster Hunter Wilds_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Monster Hunter Wilds_0', 50)">
+                    [Very Difficult] Defeat a tempered elder dragon solo
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Monster Hunter Wilds_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Monster Hunter Wilds_0', 25)">
+                    [Hard] Hunt a monster without taking any healing items
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Monster Hunter Wilds_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Monster Hunter Wilds_1', 25)">
+                    [Hard] Break every part of a monster in one hunt
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Monster Hunter Wilds_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Monster Hunter Wilds_0', 10)">
+                    [Moderate] Capture a large monster
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Monster Hunter Wilds_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Monster Hunter Wilds_1', 10)">
+                    [Moderate] Craft a full armor set from one monster
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>Farming Simulator</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Farming Simulator_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Farming Simulator_0', 50)">
+                    [Very Difficult] Run a farm for 10 in-game years with profit
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Farming Simulator_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Farming Simulator_0', 25)">
+                    [Hard] Buy and automate a full greenhouse setup
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Farming Simulator_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Farming Simulator_1', 25)">
+                    [Hard] Harvest and deliver three crop types in one session
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Farming Simulator_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Farming Simulator_0', 10)">
+                    [Moderate] Sell a full trailer of harvested crops
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Farming Simulator_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Farming Simulator_1', 10)">
+                    [Moderate] Use three different machines on the same field
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>Diablo 4</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Diablo 4_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Diablo 4_0', 50)">
+                    [Very Difficult] Complete a Tier 100 Nightmare Dungeon solo
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Diablo 4_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Diablo 4_0', 25)">
+                    [Hard] Defeat a World Boss on World Tier 4
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Diablo 4_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Diablo 4_1', 25)">
+                    [Hard] Obtain and max enchant a Legendary item
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Diablo 4_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Diablo 4_0', 10)">
+                    [Moderate] Clear five Helltide chests
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Diablo 4_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Diablo 4_1', 10)">
+                    [Moderate] Imprint a Legendary Aspect onto your gear
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>Baldur’s Gate 3</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Baldur’s Gate 3_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Baldur’s Gate 3_0', 50)">
+                    [Very Difficult] Complete the game without using Long Rest
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Baldur’s Gate 3_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Baldur’s Gate 3_0', 25)">
+                    [Hard] Solve a major puzzle without guides
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Baldur’s Gate 3_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Baldur’s Gate 3_1', 25)">
+                    [Hard] Pass a DC 30 Persuasion or Intimidation check
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Baldur’s Gate 3_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Baldur’s Gate 3_0', 10)">
+                    [Moderate] Recruit all companions in a single playthrough
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Baldur’s Gate 3_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Baldur’s Gate 3_1', 10)">
+                    [Moderate] Successfully steal from a major NPC
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details><details><summary>Palworld</summary><details><summary>[Very Difficult]</summary><ul><li class='quest' id='[Very Difficult]_Palworld_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Very Difficult]_Palworld_0', 50)">
+                    [Very Difficult] Capture a legendary Pal without taking damage
+                    <span class='points'>(50 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Hard]</summary><ul><li class='quest' id='[Hard]_Palworld_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Palworld_0', 25)">
+                    [Hard] Defeat a Tower Boss solo
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Hard]_Palworld_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Hard]_Palworld_1', 25)">
+                    [Hard] Breed a Pal with the best combat traits
+                    <span class='points'>(25 pts)</span>
+                </label>
+              </li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest' id='[Moderate]_Palworld_0'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Palworld_0', 10)">
+                    [Moderate] Capture 10 unique Pals
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li>
+<li class='quest' id='[Moderate]_Palworld_1'>
+                <label>
+                    <input type="checkbox" onchange="toggleQuest('[Moderate]_Palworld_1', 10)">
+                    [Moderate] Build and power a fully automated base
+                    <span class='points'>(10 pts)</span>
+                </label>
+              </li></ul></details></details>
   </main>
+  
+<script>
+function toggleQuest(id, points) {
+  let completed = JSON.parse(localStorage.getItem("questle-completedQuests") || "[]");
+  let totalPoints = Number(localStorage.getItem("questle-totalPoints") || 0);
+  const box = document.getElementById(id).querySelector("input");
+
+  if (box.checked && !completed.includes(id)) {
+    completed.push(id);
+    totalPoints += points;
+  } else if (!box.checked && completed.includes(id)) {
+    completed = completed.filter(q => q !== id);
+    totalPoints -= points;
+  }
+  localStorage.setItem("questle-completedQuests", JSON.stringify(completed));
+  localStorage.setItem("questle-totalPoints", totalPoints);
+  updateVisuals();
+}
+
+function updateVisuals() {
+  const completed = JSON.parse(localStorage.getItem("questle-completedQuests") || "[]");
+  const totalPoints = localStorage.getItem("questle-totalPoints") || 0;
+  document.getElementById("availablePoints").textContent = totalPoints;
+
+  document.querySelectorAll("li.quest").forEach(el => {
+    const id = el.id;
+    const input = el.querySelector("input");
+    if (completed.includes(id)) {
+      input.checked = true;
+      el.style.textDecoration = "line-through";
+      el.style.color = "#888";
+    } else {
+      input.checked = false;
+      el.style.textDecoration = "none";
+      el.style.color = "#f1f1f1";
+    }
+  });
+}
+window.onload = updateVisuals;
+</script>
+
 </body>
 </html>
