@@ -1,2 +1,103 @@
 
-<!DOCTYPE html><html><head><title>Questle</title></head><body><h1>Welcome to Questle</h1></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questle</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body {
+      background-color: #1f5122;
+      color: #f1f1f1;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3e8e41;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      border-bottom: 5px solid #2f6e32;
+    }
+    nav {
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #2f6e32;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    .game-icons {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .game-icons img {
+      width: 80px;
+      height: 80px;
+      margin: 10px;
+      image-rendering: pixelated;
+    }
+    .mute-button {
+      position: fixed;
+      bottom: 10px;
+      right: 10px;
+      background: #ff9800;
+      color: white;
+      border: none;
+      padding: 10px;
+      font-size: 0.6em;
+      font-family: 'Press Start 2P', cursive;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Questle</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quests.html">Quests</a>
+      <a href="store.html">Store</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h2>Hello Axel!</h2>
+    <p>Welcome to <strong>Questle</strong> — your personal adventure hub. This site helps you grow stronger and more disciplined through gaming challenges. No cheats. No shortcuts. Just you, your skill, and the journey.</p>
+    <p>Choose quests from your favorite games, earn points, and trade them for awesome real-world rewards!</p>
+    <div class="game-icons">
+      <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/58/Creeper_JE3_BE3.png" alt="Minecraft">
+      <img src="https://static.wikia.nocookie.net/leagueoflegends/images/7/76/BaronNashor_Render.png" alt="League of Legends">
+      <img src="https://static.wikia.nocookie.net/monsterhunter/images/b/b0/Rathalos_MHWI_Render_001.png" alt="Monster Hunter">
+      <img src="https://static.wikia.nocookie.net/palworld_gamepedia/images/7/78/Lamball.png" alt="Palworld">
+      <img src="https://static.wikia.nocookie.net/baldursgate/images/3/35/Owlbear_artwork.png" alt="BG3">
+      <img src="https://static.wikia.nocookie.net/diablo_gamepedia/images/f/fd/Diablo_IV_Butcher_Render.png" alt="Diablo 4">
+    </div>
+  </div>
+
+  <audio id="bgm" autoplay loop>
+    <source src="audio/minecraft-loop.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  <button class="mute-button" onclick="toggleMute()">Toggle Mute</button>
+  <script>
+    function toggleMute() {
+      const music = document.getElementById("bgm");
+      music.muted = !music.muted;
+    }
+  </script>
+</body>
+</html>
