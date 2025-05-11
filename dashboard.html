@@ -6,17 +6,38 @@
   <title>Questle | Dashboard</title>
   <link rel="stylesheet" href="style.css">
   <style>
+    
+  body {
+    background-color: #fdf6e3;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #ff6f61;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #ffa07a;
+  }
+  nav a {
+    margin: 0 10px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+
     .stat-card {
-      background: #2e2e2e;
+      background: #e1f5fe;
       border-radius: 10px;
       padding: 20px;
       margin: 20px auto;
       max-width: 600px;
-      color: #fff;
+      color: #333;
       box-shadow: 0 0 10px #111;
     }
     .bar-container {
-      background-color: #444;
+      background-color: #ccc;
       width: 100%;
       height: 20px;
       border-radius: 5px;
@@ -24,41 +45,47 @@
       margin-top: 5px;
     }
     .bar-fill {
-      background-color: #ff9800;
+      background-color: #4caf50;
       height: 100%;
       width: 0%;
     }
   </style>
 </head>
 <body>
+  
   <header>
-    <h1>Questle | Dashboard</h1>
-    <a href="index.html" style="color:#ff9800;">← Back to Home</a>
+    <h1>Questle</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quests.html">Quests</a>
+      <a href="store.html">Store</a>
+      <a href="journal.html">Journal</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
   </header>
-  <main id="dashboard"></main>
+  <div class="points-available" style="text-align:center; font-size:1.2em; margin-top:10px;">
+    Points Available: <span id="availablePoints">0</span>
+  </div>
 
+  <main id="dashboard"></main>
   <script>
     const stats = [{"Game": "Baldur\u2019s Gate 3", "total_quests": 18, "total_points": 1350}, {"Game": "Diablo 4", "total_quests": 16, "total_points": 875}, {"Game": "Farming Simulator", "total_quests": 18, "total_points": 1175}, {"Game": "League of Legends", "total_quests": 17, "total_points": 1000}, {"Game": "Minecraft", "total_quests": 18, "total_points": 1125}, {"Game": "Monster Hunter Wilds", "total_quests": 13, "total_points": 875}, {"Game": "Palworld", "total_quests": 50, "total_points": 2825}];
-
-    function loadGameStats() {
-      const totalPoints = Number(localStorage.getItem('questle-totalPoints') || 0);
-      const dashboard = document.getElementById("dashboard");
-      stats.forEach(game => {
-        const percentage = game.total_points === 0 ? 0 : Math.min(100, Math.round((totalPoints / game.total_points) * 100));
-        const div = document.createElement("div");
-        div.className = "stat-card";
-        div.innerHTML = `
-          <h2>🎮 ${game.Game}</h2>
-          <p>Total Quests: ${game.total_quests}</p>
-          <p>Total Available Points: ${game.total_points}</p>
-          <p>Progress Toward Game Max: ${percentage}%</p>
-          <div class='bar-container'><div class='bar-fill' style='width: ${percentage}%;'></div></div>
-        `;
-        dashboard.appendChild(div);
-      });
-    }
-
-    window.onload = loadGameStats;
+    const points = Number(localStorage.getItem('questle-totalPoints') || 0);
+    document.getElementById('availablePoints').textContent = points;
+    const dashboard = document.getElementById("dashboard");
+    stats.forEach(game => {
+      const percentage = game.total_points === 0 ? 0 : Math.min(100, Math.round((points / game.total_points) * 100));
+      const div = document.createElement("div");
+      div.className = "stat-card";
+      div.innerHTML = `
+        <h2>🎮 ${game.Game}</h2>
+        <p>Total Quests: ${game.total_quests}</p>
+        <p>Total Available Points: ${game.total_points}</p>
+        <p>Progress Toward Game Max: ${percentage}%</p>
+        <div class='bar-container'><div class='bar-fill' style='width: ${percentage}%;'></div></div>
+      `;
+      dashboard.appendChild(div);
+    });
   </script>
 </body>
 </html>
