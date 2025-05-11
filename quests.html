@@ -4,67 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Questle | Quests</title>
-  <link rel="stylesheet" href="style.css">
+  
   <style>
-    body {
-      background-color: #fdf6e3;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #ff6f61;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      border-bottom: 5px solid #ffa07a;
-    }
-    nav a {
-      margin: 0 10px;
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    .accordion {
-      background-color: #ffd700;
-      color: #333;
-      cursor: pointer;
-      padding: 15px;
-      width: 100%;
-      text-align: left;
-      outline: none;
-      font-size: 1.2em;
-      border: none;
-      border-bottom: 2px solid #fff;
-      transition: background-color 0.3s ease;
-    }
-    .accordion:hover {
-      background-color: #ffeb3b;
-    }
-    .panel {
-      padding: 0 20px;
-      background-color: #fff8dc;
-      display: none;
-      overflow: hidden;
-    }
-    .quest-entry {
-      margin: 10px 0;
-      background: #e0f7fa;
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    .meta {
-      font-size: 0.9em;
-      color: #555;
-      margin-left: 10px;
-    }
-    .total {
-      text-align: center;
-      margin: 20px;
-      font-size: 1.3em;
-    }
-  </style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  body {
+    background-color: #1f5122;
+    font-family: 'Press Start 2P', cursive;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #3e8e41;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #2f6e32;
+  }
+  nav a {
+    margin: 0 12px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-shadow: 0 0 3px #fff;
+  }
+  .points-available {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 15px;
+    color: #d9ffcc;
+  }
+  .meta {
+    color: #aaffaa;
+  }
+  .quest-entry.completed .quest-text {
+    text-decoration: line-through;
+    color: #888;
+  }
+  button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7em;
+    background: #2f6e32;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
 </head>
 <body>
   <header>

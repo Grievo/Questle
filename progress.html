@@ -4,30 +4,60 @@
 <head>
   <meta charset="UTF-8">
   <title>Questle | Player Progress</title>
-  <link rel="stylesheet" href="style.css">
+  
   <style>
-    .quest-card {
-      background-color: #2e2e2e;
-      padding: 20px;
-      border-radius: 12px;
-      margin: 20px auto;
-      max-width: 600px;
-      box-shadow: 0 0 10px #000;
-    }
-    .quest-title {
-      font-size: 1.4em;
-      color: #ffcc00;
-    }
-    .quest-desc, .quest-meta {
-      margin-top: 10px;
-      color: #ddd;
-    }
-    label {
-      display: inline-block;
-      margin-top: 15px;
-      font-size: 1.1em;
-    }
-  </style>
+  @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+  body {
+    background-color: #1f5122;
+    font-family: 'Press Start 2P', cursive;
+    color: #f1f1f1;
+    margin: 0;
+    padding: 0;
+  }
+  header {
+    background-color: #3e8e41;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-bottom: 5px solid #2f6e32;
+  }
+  nav a {
+    margin: 0 12px;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover {
+    text-shadow: 0 0 3px #fff;
+  }
+  .points-available {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 15px;
+    color: #d9ffcc;
+  }
+  .meta {
+    color: #aaffaa;
+  }
+  .quest-entry.completed .quest-text {
+    text-decoration: line-through;
+    color: #888;
+  }
+  button {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.7em;
+    background: #2f6e32;
+    color: white;
+    border: none;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #45a049;
+  }
+</style>
 </head>
 <body>
   <header>
