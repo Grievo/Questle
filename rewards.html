@@ -1,0 +1,86 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questle | Rewards</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .reward {
+      background: #333;
+      border-radius: 10px;
+      padding: 15px;
+      margin: 15px auto;
+      max-width: 500px;
+      color: #fff;
+      box-shadow: 0 0 10px #111;
+    }
+    button {
+      background-color: #ff9800;
+      border: none;
+      padding: 10px 15px;
+      font-size: 1em;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    button:disabled {
+      background-color: #666;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Questle | Rewards</h1>
+    <a href="index.html" style="color:#ff9800;">← Back to Home</a>
+  </header>
+  <main>
+    <div style="text-align:center; margin:20px;">
+      <strong>Points Available: <span id="availablePoints">0</span></strong>
+    </div>
+
+    <div class="reward">
+      🎉 Yes Day (500 pts)
+      <button onclick="redeem(500)">Redeem</button>
+    </div>
+    <div class="reward">
+      🍕 Pizza Party (350 pts)
+      <button onclick="redeem(350)">Redeem</button>
+    </div>
+    <div class="reward">
+      🎮 New Video Game (750 pts)
+      <button onclick="redeem(750)">Redeem</button>
+    </div>
+    <div class="reward">
+      🧍 Time With Parents (Free Choice) (250 pts)
+      <button onclick="redeem(250)">Redeem</button>
+    </div>
+    <div class="reward">
+      💵 $10 Cash (300 pts)
+      <button onclick="redeem(300)">Redeem</button>
+    </div>
+  </main>
+  <script>
+    function updateDisplay() {
+      const points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      document.getElementById('availablePoints').textContent = points;
+      document.querySelectorAll("button").forEach(btn => {
+        const cost = parseInt(btn.innerText.match(/\((\d+) pts\)/)?.[1] || "0");
+        btn.disabled = points < cost;
+      });
+    }
+
+    function redeem(cost) {
+      let points = Number(localStorage.getItem('questle-totalPoints') || 0);
+      if (points >= cost) {
+        points -= cost;
+        localStorage.setItem('questle-totalPoints', points);
+        updateDisplay();
+        alert("Reward redeemed! 🎉");
+      }
+    }
+
+    window.onload = updateDisplay;
+  </script>
+</body>
+</html>
