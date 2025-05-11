@@ -1,57 +1,68 @@
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Questle | Quests</title>
   <style>
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-body {
-  background-color: #1f5122;
-  font-family: 'Press Start 2P', cursive;
-  color: #f1f1f1;
-  padding: 20px;
-}
-header {
-  text-align: center;
-  color: white;
-  background: #3e8e41;
-  padding: 20px;
-  border-bottom: 5px solid #2f6e32;
-}
-nav a {
-  color: #f0f0f0;
-  margin: 0 10px;
-  text-decoration: none;
-}
-details summary {
-  cursor: pointer;
-  padding: 5px;
-  background: #2f6e32;
-  border-radius: 5px;
-  margin-top: 10px;
-}
-.quest {
-  margin: 5px 0;
-}
-.points {
-  color: #d9ffcc;
-  margin-left: 10px;
-}
-[summary*="Very Difficult"] ~ ul .quest {
-  color: #ff5555;
-}
-[summary*="Hard"] ~ ul .quest {
-  color: #ffaa00;
-}
-[summary*="Moderate"] ~ ul .quest {
-  color: #ffff55;
-}
-</style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body {
+      background-color: #1f5122;
+      color: #f1f1f1;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3e8e41;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      border-bottom: 5px solid #2f6e32;
+    }
+    nav {
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    main {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #2f6e32;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    details {
+      margin-bottom: 10px;
+    }
+    summary {
+      cursor: pointer;
+      padding: 10px;
+      background-color: #3e8e41;
+      border-radius: 5px;
+      box-shadow: 0 0 3px #000;
+    }
+    ul {
+      list-style: square;
+      padding-left: 20px;
+    }
+    .quest {
+      margin: 5px 0;
+    }
+    .points {
+      color: #d9ffcc;
+      margin-left: 10px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1>Questle</h1>
+    <h1>Questle | Quests</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="quests.html">Quests</a>
@@ -59,161 +70,23 @@ details summary {
       <a href="dashboard.html">Dashboard</a>
     </nav>
   </header>
-  <h2>Choose a game, then pick a difficulty to see your quests</h2>
-  
-    <details>
-        <summary>Minecraft</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Minecraft Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Minecraft Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Minecraft Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Minecraft Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Minecraft Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>League of Legends</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] League of Legends Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] League of Legends Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] League of Legends Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] League of Legends Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] League of Legends Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>Monster Hunter Wilds</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Monster Hunter Wilds Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Monster Hunter Wilds Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Monster Hunter Wilds Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Monster Hunter Wilds Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Monster Hunter Wilds Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>Farming Simulator</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Farming Simulator Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Farming Simulator Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Farming Simulator Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Farming Simulator Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Farming Simulator Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>Diablo 4</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Diablo 4 Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Diablo 4 Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Diablo 4 Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Diablo 4 Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Diablo 4 Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>Baldur’s Gate 3</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Baldur’s Gate 3 Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Baldur’s Gate 3 Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Baldur’s Gate 3 Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Baldur’s Gate 3 Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Baldur’s Gate 3 Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
-    <details>
-        <summary>Palworld</summary>
-        
-        <details>
-            <summary>[Very Difficult]</summary>
-            <ul><li class='quest [Very Difficult]'>[Very Difficult] Palworld Quest 1 <span class='points'>(50 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Hard]</summary>
-            <ul><li class='quest [Hard]'>[Hard] Palworld Quest 1 <span class='points'>(25 pts)</span></li>
-<li class='quest [Hard]'>[Hard] Palworld Quest 2 <span class='points'>(25 pts)</span></li></ul>
-        </details>
-        
-        <details>
-            <summary>[Moderate]</summary>
-            <ul><li class='quest [Moderate]'>[Moderate] Palworld Quest 1 <span class='points'>(10 pts)</span></li>
-<li class='quest [Moderate]'>[Moderate] Palworld Quest 2 <span class='points'>(10 pts)</span></li></ul>
-        </details>
-        
-    </details>
-    
+  <main>
+    <h2>Choose your game and difficulty</h2>
+    <details><summary>Minecraft</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Defeat the Ender Dragon in Hardcore mode <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Complete a Woodland Mansion without dying <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Raid a Bastion Remnant and loot the chests <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Craft a full set of diamond armor <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Trade with a villager until they become a master <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>League of Legends</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Win a ranked game with an S+ grade <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Get 20 assists in a match as a support <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Win a game without dying once <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Ward over 20 times in a game <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Score First Blood <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Monster Hunter Wilds</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Defeat a tempered elder dragon solo <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Hunt a monster without taking any healing items <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Break every part of a monster in one hunt <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Capture a large monster <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Craft a full armor set from one monster <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Farming Simulator</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Run a farm for 10 in-game years with profit <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Buy and automate a full greenhouse setup <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Harvest and deliver three crop types in one session <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Sell a full trailer of harvested crops <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Use three different machines on the same field <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Diablo 4</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Complete a Tier 100 Nightmare Dungeon solo <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Defeat a World Boss on World Tier 4 <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Obtain and max enchant a Legendary item <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Clear five Helltide chests <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Imprint a Legendary Aspect onto your gear <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Baldur’s Gate 3</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Complete the game without using Long Rest <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Solve a major puzzle without guides <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Pass a DC 30 Persuasion or Intimidation check <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Recruit all companions in a single playthrough <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Successfully steal from a major NPC <span class='points'>(10 pts)</span></li></ul></details></details><details><summary>Palworld</summary><details><summary>[Very Difficult]</summary><ul><li class='quest'>[Very Difficult] Capture a legendary Pal without taking damage <span class='points'>(50 pts)</span></li></ul></details><details><summary>[Hard]</summary><ul><li class='quest'>[Hard] Defeat a Tower Boss solo <span class='points'>(25 pts)</span></li>
+<li class='quest'>[Hard] Breed a Pal with the best combat traits <span class='points'>(25 pts)</span></li></ul></details><details><summary>[Moderate]</summary><ul><li class='quest'>[Moderate] Capture 10 unique Pals <span class='points'>(10 pts)</span></li>
+<li class='quest'>[Moderate] Build and power a fully automated base <span class='points'>(10 pts)</span></li></ul></details></details>
+  </main>
 </body>
 </html>
