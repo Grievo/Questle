@@ -1,1 +1,92 @@
-<!DOCTYPE html><html><head><title>dashboard.html</title></head><body><h1>dashboard.html</h1></body></html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Questle | Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+    body {
+      background-color: #1f5122;
+      color: #f1f1f1;
+      font-family: 'Press Start 2P', cursive;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #3e8e41;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 5px solid #2f6e32;
+    }
+    nav {
+      text-align: center;
+      padding: 10px;
+    }
+    nav a {
+      color: #f0f0f0;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    .dashboard {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #2f6e32;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #000;
+    }
+    .game {
+      margin-bottom: 30px;
+    }
+    .bar {
+      height: 20px;
+      background: #444;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .fill {
+      height: 100%;
+      background: #00ff00;
+      width: 0%;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Questle | Dashboard</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="quests.html">Quests</a>
+      <a href="store.html">Store</a>
+      <a href="dashboard.html">Dashboard</a>
+    </nav>
+  </header>
+  <div class="dashboard" id="dashPanel"></div>
+  <script>
+    const summary = [{'Game': 'Baldur’s Gate 3', 'total_quests': 30, 'total_points': 850}, {'Game': 'Diablo 4', 'total_quests': 30, 'total_points': 850}, {'Game': 'Farming Simulator', 'total_quests': 30, 'total_points': 850}, {'Game': 'League of Legends', 'total_quests': 30, 'total_points': 850}, {'Game': 'Monster Hunter Wilds', 'total_quests': 30, 'total_points': 850}, {'Game': 'Palworld', 'total_quests': 30, 'total_points': 850}];
+    const quests = [{'ID': 'quest0', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest1', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest2', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest3', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest4', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest5', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest6', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest7', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest8', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest9', 'Game': 'League of Legends', 'Points': 50}, {'ID': 'quest10', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest11', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest12', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest13', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest14', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest15', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest16', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest17', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest18', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest19', 'Game': 'League of Legends', 'Points': 25}, {'ID': 'quest20', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest21', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest22', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest23', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest24', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest25', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest26', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest27', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest28', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest29', 'Game': 'League of Legends', 'Points': 10}, {'ID': 'quest30', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest31', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest32', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest33', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest34', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest35', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest36', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest37', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest38', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest39', 'Game': 'Monster Hunter Wilds', 'Points': 50}, {'ID': 'quest40', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest41', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest42', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest43', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest44', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest45', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest46', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest47', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest48', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest49', 'Game': 'Monster Hunter Wilds', 'Points': 25}, {'ID': 'quest50', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest51', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest52', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest53', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest54', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest55', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest56', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest57', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest58', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest59', 'Game': 'Monster Hunter Wilds', 'Points': 10}, {'ID': 'quest60', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest61', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest62', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest63', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest64', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest65', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest66', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest67', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest68', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest69', 'Game': 'Farming Simulator', 'Points': 50}, {'ID': 'quest70', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest71', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest72', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest73', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest74', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest75', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest76', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest77', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest78', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest79', 'Game': 'Farming Simulator', 'Points': 25}, {'ID': 'quest80', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest81', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest82', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest83', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest84', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest85', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest86', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest87', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest88', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest89', 'Game': 'Farming Simulator', 'Points': 10}, {'ID': 'quest90', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest91', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest92', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest93', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest94', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest95', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest96', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest97', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest98', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest99', 'Game': 'Diablo 4', 'Points': 50}, {'ID': 'quest100', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest101', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest102', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest103', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest104', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest105', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest106', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest107', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest108', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest109', 'Game': 'Diablo 4', 'Points': 25}, {'ID': 'quest110', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest111', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest112', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest113', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest114', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest115', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest116', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest117', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest118', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest119', 'Game': 'Diablo 4', 'Points': 10}, {'ID': 'quest120', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest121', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest122', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest123', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest124', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest125', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest126', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest127', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest128', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest129', 'Game': 'Baldur’s Gate 3', 'Points': 50}, {'ID': 'quest130', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest131', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest132', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest133', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest134', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest135', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest136', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest137', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest138', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest139', 'Game': 'Baldur’s Gate 3', 'Points': 25}, {'ID': 'quest140', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest141', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest142', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest143', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest144', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest145', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest146', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest147', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest148', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest149', 'Game': 'Baldur’s Gate 3', 'Points': 10}, {'ID': 'quest150', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest151', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest152', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest153', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest154', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest155', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest156', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest157', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest158', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest159', 'Game': 'Palworld', 'Points': 50}, {'ID': 'quest160', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest161', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest162', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest163', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest164', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest165', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest166', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest167', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest168', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest169', 'Game': 'Palworld', 'Points': 25}, {'ID': 'quest170', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest171', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest172', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest173', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest174', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest175', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest176', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest177', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest178', 'Game': 'Palworld', 'Points': 10}, {'ID': 'quest179', 'Game': 'Palworld', 'Points': 10}];
+    const completed = JSON.parse(localStorage.getItem("questle-completedQuests") || "[]");
+    const dash = document.getElementById("dashPanel");
+
+    summary.forEach(group => {
+      const game = group.Game;
+      const gameQuests = quests.filter(q => q.Game === game);
+      const done = gameQuests.filter(q => completed.includes(q.ID));
+      const earned = done.reduce((sum, q) => sum + q.Points, 0);
+      const percent = group.total_points > 0 ? Math.round((earned / group.total_points) * 100) : 0;
+
+      const div = document.createElement("div");
+      div.className = "game";
+      div.innerHTML = `
+        <h2>${game}</h2>
+        <p>Completed: ${done.length} / ${group.total_quests} quests</p>
+        <p>Points: ${earned} / ${group.total_points}</p>
+        <div class="bar"><div class="fill" style="width: ${percent}%;"></div></div>
+      `;
+      dash.appendChild(div);
+    });
+  </script>
+</body>
+</html>
